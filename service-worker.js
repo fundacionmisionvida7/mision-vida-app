@@ -129,68 +129,23 @@ self.addEventListener('install', () => {
 /////////////////////////////////////////////////////////////
 // ================= NOTIFICACIONES PUSH =================
 /////////////////////////////////////////////////////////////
-const CACHE_NAME = 'push-notifications-v1';
-
-self.addEventListener('push', event => {
+// ================= NOTIFICACIONES PUSH CORREGIDAS =================
+self.addEventListener('push', async event => {
   const data = event.data.json();
   
-  // Verificar si hay conexión
-  const isOnline = navigator.onLine;
-  
+  // Obtener el cliente activo para verificar conexión
+  const clients = await self.clients.matchAll({ type: 'window' });
+  const isOnline = clients.length > 0 && clients[0].visibilityState === 'visible';
+
   const options = {
-    body: isOnline ? data.body : '📴 Mensaje guardado (modo offline)',
+    body: isOnline ? data.body : '📬 Mensaje guardado (conexión recuperada)',
     icon: '/icon-192x192.png',
     badge: '/badge.png',
-    vibrate: [200, 100, 200],
     data: { url: data.url || '/' }
   };
 
   event.waitUntil(
     self.registration.showNotification(data.title, options)
-      .then(() => {
-        if (!isOnline) {
-          return caches.open(CACHE_NAME)
-            .then(cache => cache.put('pending-notification', new Response(JSON.stringify(data))));
-        }
-      })
-  );
-});
-
-self.addEventListener('notificationclick', event => {
-  event.notification.close();
-  event.waitUntil(
-    clients.openWindow(event.notification.data.url)
-  );
-});
-
-self.addEventListener('pushsubscriptionchange', async (event) => {
-  const newSubscription = await self.registration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: new Uint8Array(
-      atob('BKbz0Gk49FDvNqS78cb3W-xuCkTHmIrkGBuXQ1haspH_aKeuLl2Xdu3J_YHsORZ_JJoOxeBDPGlDrsT3ZPODstU')
-        .split('')
-        .map(c => c.charCodeAt(0))
-    )
-  });
-
-  await fetch('/api/subscribe', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(newSubscription)
-  });
-});
-
-
-self.addEventListener('push', event => {
-  const data = event.data.json();
-  
-  event.waitUntil(
-    self.registration.showNotification(data.title, {
-      body: data.body,
-      icon: '/icon-192x192.png',
-      badge: '/badge.png',
-      data: { url: data.url || '/' }
-    })
   );
 });
 
@@ -198,3 +153,24 @@ self.addEventListener('notificationclick', event => {
   event.notification.close();
   event.waitUntil(clients.openWindow(event.notification.data.url));
 });
+
+self.addEventListener('pushsubscriptionchange', async event => {
+  const newSubscription = await self.registration.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
+  });
+
+  await fetch('/api/subscribe', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subscription: newSubscription })
+  });
+});
+
+// Helper para conversión de clave
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4;
+  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const rawData = atob(base64);
+  return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
+}

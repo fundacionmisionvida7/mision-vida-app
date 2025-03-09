@@ -1,4 +1,5 @@
 import webPush from 'web-push';
+import fs from 'fs';
 
 export default async (req, res) => {
   webPush.setVapidDetails(
@@ -11,25 +12,25 @@ export default async (req, res) => {
     try {
       const subscription = req.body.subscription;
       
-      // Debug: Verificar datos recibidos
-      console.log('Suscripción recibida:', subscription);
+      // Guardar en archivo (solución temporal)
+      const subscriptions = JSON.parse(fs.readFileSync('subscriptions.json', 'utf8') || [];
       
-      // Enviar notificación de prueba inmediata
+      if (!subscriptions.some(sub => sub.endpoint === subscription.endpoint)) {
+        subscriptions.push(subscription);
+        fs.writeFileSync('subscriptions.json', JSON.stringify(subscriptions));
+      }
+
+      // Enviar notificación de confirmación
       await webPush.sendNotification(subscription, JSON.stringify({
         title: '✅ Activación Exitosa',
-        body: '¡Ya recibirás la Palabra cada día!',
-        icon: '/icon-192x192.png',
-        url: '/'
+        body: '¡Recibirás la Palabra cada día a las 8 AM!',
+        icon: '/icon-192x192.png'
       }));
 
       res.status(200).json({ success: true });
       
     } catch (error) {
-      console.error('Error detallado:', {
-        message: error.message,
-        statusCode: error.statusCode,
-        body: error.body
-      });
+      console.error('Error:', error);
       res.status(500).json({ 
         error: 'Error interno',
         details: error.message 
