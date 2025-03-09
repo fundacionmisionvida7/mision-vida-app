@@ -3,7 +3,7 @@ import fs from 'fs';
 
 export default async (req, res) => {
   webPush.setVapidDetails(
-    'mailto:contacto@misionvida.com',
+   'mailto:contacto@misionvida.com',
     process.env.VAPID_PUBLIC_KEY,
     process.env.VAPID_PRIVATE_KEY
   );
@@ -12,8 +12,15 @@ export default async (req, res) => {
     try {
       const subscription = req.body.subscription;
       
-      // Guardar en archivo (solución temporal)
-      const subscriptions = JSON.parse(fs.readFileSync('subscriptions.json', 'utf8') || [];
+      // Leer archivo de subscriptions
+      let subscriptions;
+      try {
+        const data = fs.readFileSync('subscriptions.json', 'utf8');
+        subscriptions = data? JSON.parse(data) : [];
+      } catch (error) {
+        console.error('Error leyendo subscriptions.json:', error);
+        subscriptions = []; // Inicializar como un arreglo vacío si no se puede leer
+      }
       
       if (!subscriptions.some(sub => sub.endpoint === subscription.endpoint)) {
         subscriptions.push(subscription);
@@ -22,7 +29,7 @@ export default async (req, res) => {
 
       // Enviar notificación de confirmación
       await webPush.sendNotification(subscription, JSON.stringify({
-        title: '✅ Activación Exitosa',
+        title:'Activación Exitosa',
         body: '¡Recibirás la Palabra cada día a las 8 AM!',
         icon: '/icon-192x192.png'
       }));

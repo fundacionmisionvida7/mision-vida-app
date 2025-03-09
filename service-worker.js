@@ -157,7 +157,8 @@ self.addEventListener('notificationclick', event => {
 self.addEventListener('pushsubscriptionchange', async event => {
   const newSubscription = await self.registration.pushManager.subscribe({
     userVisibleOnly: true,
-    applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
+   // applicationServerKey: urlBase64ToUint8Array(process.env.VAPID_PUBLIC_KEY)
+   applicationServerKey: urlBase64ToUint8Array('BKbz0Gk49FDvNqS78cb3W-xuCkTHmIrkGBuXQ1haspH_aKeuLl2Xdu3J_YHsORZ_JJoOxeBDPGlDrsT3ZPODstU')
   });
 
   await fetch('/api/subscribe', {
@@ -168,9 +169,12 @@ self.addEventListener('pushsubscriptionchange', async event => {
 });
 
 // Helper para conversión de clave
+// Función corregida (tenías un paréntesis faltante)
 function urlBase64ToUint8Array(base64String) {
-  const padding = '='.repeat((4 - (base64String.length % 4)) % 4;
-  const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4); // <-- Aquí faltaba )
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
   const rawData = atob(base64);
   return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
 }

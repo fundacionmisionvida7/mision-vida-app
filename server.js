@@ -3,52 +3,65 @@ import fetch from 'node-fetch';
 import { JSDOM } from 'jsdom';
 import cors from 'cors';
 import webPush from 'web-push';
+import fs from 'fs';
 import 'dotenv/config';
-
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuración de middleware
-// Reemplaza la configuración actual de CORS con:
+// Configuración CORS mejorada
 const allowedOrigins = [
-  'https://mision-vida-app.web.app', // Producción
-  'http://127.0.0.1:5500', // Localhost
-  'http://localhost:3000' // Ejemplo adicional
+  'http://127.0.0.1:5500',
+  'https://mision-vida-app.web.app',
+  'https://palabra-del-dia-backend.vercel.app'
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
+  origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Origen no permitido por CORS'));
+      callback(new Error('Bloqueado por CORS'));
     }
   },
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+  preflightContinue: false,
+  optionsSuccessStatus: 204
 }));
 
-// 2. Manejar solicitudes OPTIONS (preflight)
-app.options('*', cors()); // <-- ¡Esta es la línea clave!
+// Manejar explícitamente OPTIONS para /api/subscribe
+app.options('/api/subscribe', cors())
 
-// 3. Resto de middlewares
-app.use(express.json());
 
-// 4. Configuración VAPID
+// Configuración VAPID
 webPush.setVapidDetails(
   'mailto:contacto@misionvida.com',
   process.env.VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 );
 
-// 5. Rutas
+// Manejo de suscripciones
+const getSubscriptions = () => {
+  try {
+    return JSON.parse(fs.readFileSync('subscriptions.json', 'utf8'));
+  } catch (error) {
+    return [];
+  }
+};
+
+// Endpoints
 app.get('/', (req, res) => {
-  res.json({ status: 'online' });
+  res.json({
+    status: 'online',
+    message: 'Backend para Palabra del Día',
+    suscripciones_activas: getSubscriptions().length
+  });
 });
 
 app.post('/api/subscribe', async (req, res) => {
-  // ... lógica de suscripción
+  // ... (usar el código del subscribe.js corregido)
 });
 
 

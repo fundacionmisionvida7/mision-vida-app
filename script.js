@@ -19,15 +19,7 @@ import { collection, query, where, getDocs } from "https://www.gstatic.com/fireb
 
 //import fetch from "node-fetch";
 //import { JSDOM } from "jsdom";
-// En tu frontend (script.js), modifica el fetch:
-fetch('https://palabra-del-dia-backend.vercel.app/api/subscribe', {
-  method: 'POST',
-  mode: 'cors', // <-- Asegúrate que está presente
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(subscription)
-});
+
 
 
 /////////////////////////////////////////////
@@ -1400,62 +1392,72 @@ if ('serviceWorker' in navigator && 'SyncManager' in window) {
 
 
 
-
 /////////////////////////////////////////////////////////////
 // ================== NOTIFICACIONES PUSH ==================
 /////////////////////////////////////////////////////////////
 
+// Función para convertir clave VAPID
+function urlBase64ToUint8Array(base64String) {
+  const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+  const base64 = (base64String + padding)
+    .replace(/-/g, '+')
+    .replace(/_/g, '/');
+  const rawData = atob(base64);
+  return Uint8Array.from([...rawData].map(c => c.charCodeAt(0)));
+}
+
+// Configuración principal de notificaciones
 document.getElementById('enableNotifications').addEventListener('click', async () => {
   try {
     const permission = await Notification.requestPermission();
     
-    if (permission === 'granted') {
-      const swReg = await navigator.serviceWorker.ready;
-      
-      // ... (tu código existente de suscripción)
-      const urlBase64ToUint8Array = (base64String) => {
-        // Corregir paréntesis
-        const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
-        const base64 = (base64String + padding)
-          .replace(/-/g, '+')
-          .replace(/_/g, '/');
-        const rawData = atob(base64);
-        return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
-      };
-
-      // Clave VAPID válida (reemplazar con la TUYA)
-      const vapidPublicKey = 'BKbz0Gk49FDvNqS78cb3W-xuCkTHmIrkGBuXQ1haspH_aKeuLl2Xdu3J_YHsORZ_JJoOxeBDPGlDrsT3ZPODstU';
-      
-      const subscription = await swReg.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
-      });
-
-      await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ subscription })
-      });
-
-      // Mostrar modal de éxito
-      const successModal = new bootstrap.Modal('#notificationActivatedModal');
-      successModal.show();
-      
-    } else {
-      // Modal si el usuario rechaza
-      const toast = new bootstrap.Toast('#connectionToast');
-      document.getElementById('connectionToastBody').innerHTML = `
-        <div class="text-warning">
-          <i class="bi bi-exclamation-triangle me-2"></i>Las notificaciones están desactivadas
-        </div>
-      `;
-      toast.show();
+    if (permission !== 'granted') {
+      showToast('Debes aceptar los permisos para recibir notificaciones', 'warning');
+      return;
     }
+
+    const swReg = await navigator.serviceWorker.ready;
+    const vapidPublicKey = 'BKbz0Gk49FDvNqS78cb3W-xuCkTHmIrkGBuXQ1haspH_aKeuLl2Xdu3J_YHsORZ_JJoOxeBDPGlDrsT3ZPODstU';
+    
+    const subscription = await swReg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array(vapidPublicKey)
+    });
+
+    await fetch('https://palabra-del-dia-backend.vercel.app/api/subscribe', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest' // Header adicional de seguridad
+      },
+      mode: 'cors',
+      credentials: 'include',
+      body: JSON.stringify({ subscription })
+    });
+
+    if (!response.ok) throw new Error(await response.text());
+
+    new bootstrap.Modal('#notificationActivatedModal').show();
+    showToast('Notificaciones activadas exitosamente!', 'success');
+
   } catch (error) {
-    // Modal de error
-    const errorModal = new bootstrap.Modal('#errorModal');
-    document.getElementById('errorMessage').textContent = 
-      'Error al activar notificaciones: ' + error.message;
-    errorModal.show();
+    console.error('Error:', error);
+    showToast(`Error al activar: ${error.message}`, 'danger');
   }
 });
+
+// Función auxiliar para mostrar toasts
+function showToast(message, type = 'success') {
+  const toastEl = document.getElementById('connectionToast');
+  const toastBody = document.getElementById('connectionToastBody');
+  
+  toastBody.className = `toast-body bg-${type} text-white rounded`;
+  toastBody.innerHTML = `
+    <div class="d-flex align-items-center">
+      <i class="bi ${type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle'} me-2"></i>
+      ${message}
+    </div>
+  `;
+  
+  new bootstrap.Toast(toastEl).show();
+}
