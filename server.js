@@ -10,18 +10,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configuración CORS mejorada
-const allowedOrigins = [
-  'http://127.0.0.1:5500',
-  'https://mision-vida-app.web.app',
-  'https://palabra-del-dia-backend.vercel.app'
-];
+// Configuración CORS actualizada
+const allowedOrigins = ['http://127.0.0.1:5500', 'https://mision-vida-app.web.app'];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error('Bloqueado por CORS'));
+      callback(new Error('Origen no permitido por CORS'));
     }
   },
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -31,9 +28,13 @@ app.use(cors({
   optionsSuccessStatus: 204
 }));
 
-// Manejar explícitamente OPTIONS para /api/subscribe
-app.options('/api/subscribe', cors())
-
+// Manejar OPTIONS explícitamente
+app.options('/api/subscribe', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.status(204).end();
+});
 
 // Configuración VAPID
 webPush.setVapidDetails(

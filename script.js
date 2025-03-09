@@ -1426,12 +1426,11 @@ document.getElementById('enableNotifications').addEventListener('click', async (
 
     await fetch('https://palabra-del-dia-backend.vercel.app/api/subscribe', {
       method: 'POST',
-      headers: { 
+      headers: {
         'Content-Type': 'application/json',
-        'X-Requested-With': 'XMLHttpRequest' // Header adicional de seguridad
+        'Origin': 'http://127.0.0.1:5500' // Especificar origen manualmente
       },
       mode: 'cors',
-      credentials: 'include',
       body: JSON.stringify({ subscription })
     });
 

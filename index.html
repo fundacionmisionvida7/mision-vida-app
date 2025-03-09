@@ -32,15 +32,17 @@
 </head>
 
 <link rel="manifest" href="manifest.json">
+
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/service-worker.js')
-        .then(() => console.log('Service Worker registrado!'))
-        .catch((error) => console.error('Error:', error));
+        .then(reg => console.log('Service Worker registrado con excito en:', reg.scope))
+        .catch(err => console.error('Error Service Worker:', err));
     });
   }
 </script>
+
 
 <script type="application/ld+json">
   {
