@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iglesia Cristiana - Juego Bíblico</title>
+    <style>
+ /* Estilos generales */
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif; /* Fuente clara y legible */
+    color: #f9f9f9; /* Color de texto oscuro */
+    text-shadow: 1px 1px 2px rgba(241, 226, 5, 0.493); /* Sombra suave */
+    background-color: #050505; /* Fondo claro */
+    background-image: url('wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #012e4d;
+    color: #ffffff;
+    padding: 5% 3%;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+nav ul li {
+    margin: 5px 0;
+}
+
+nav ul li a {
+    color: #c0d6be;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: block;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+    background-color: #012e4d;
+}
+
+.button-link {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #ffffff;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-link:hover {
+    background-color: #cc5200;
+    transform: scale(1.05);
+}
+
+main {
+    padding: 10px;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    width: 90%;
+    max-width: 300px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4);
+}
+
+#pregunta-container {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+#opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+#mensaje {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#contador-preguntas,
+#contador-tiempo {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para redes sociales */
+#redes-sociales {
+    text-align: center;
+    padding: 15px;
+}
+
+#redes-sociales a {
+    margin: 0 10px;
+    color: #d2dbe0;
+    text-decoration: none;
+    font-size: 0.8rem; /* Tamaño de fuente de los enlaces de redes sociales */
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem; /* Tamaño de fuente de los botones de redes sociales */
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.instagram {
+    background-color: #c13584;
+}
+
+.youtube {
+    background-color: #ff0000;
+}
+
+.social-button:hover {
+    opacity: 0.8;
+}
+
+
+footer {
+    background-color: #012e4d;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* Ajustes específicos para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 8% 5%;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+
+    main {
+        padding: 5px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #mensaje {
+        font-size: 1rem;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Juego Bíblico</h1>
+        <nav>
+            <ul>
+                <a href="../index.html" class="button-link">◀ Volver a la Página Principal</a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido al Juego Bíblico</h2>
+            <p>Pon a prueba tus conocimientos bíblicos respondiendo preguntas en el menor tiempo posible.</p>
+            <button onclick="iniciarJuego()">Comenzar Juego</button>
+        </section>
+        <section id="reglas">
+            <h2>Reglas del Juego</h2>
+            <ul>
+                <li>Responde la mayor cantidad de preguntas posible.</li>
+                <li>Tienes 15 segundos para responder cada pregunta.</li>
+                <li>El juego termina cuando cometes 5 errores o respondes todas las preguntas.</li>
+            </ul>
+            <p>Mejor Récord: <span id="mejor-record">0</span></p>
+        </section>
+        <section id="redes-sociales">
+            <h2>Síguenos en redes sociales</h2>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/misionvidaoficial?mibextid=ZbWKwL" target="_blank" class="social-button facebook">Facebook</a>
+                <a href="https://www.instagram.com/misionvidaoficial/" target="_blank" class="social-button instagram">Instagram</a>
+                <a href="https://www.youtube.com/@misionvidaoficial9413" target="_blank" class="social-button youtube">YouTube</a>
+            </div>
+        </section>
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <p>📧 Email: fcmisionvida@gmail.com</p>
+            <p> ☎ Teléfono: (353) 429-0100</p>
+            <p> 🏠 Dirección: Calle Gorrti 250, Ciudad Villa María</p>
+        </section>
+        <section id="juego" class="hidden">
+            <div id="pregunta-container">
+                <h2 id="pregunta"></h2>
+                <div id="opciones"></div>
+            </div>
+            <div id="mensaje"></div>
+            <div id="contador-preguntas"></div>
+            <div id="contador-tiempo"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Iglesia Cristiana Misión Vida. Todos los derechos reservados.</p>
+    </footer>
+    <audio id="menuMusic" loop>
+        <source src="Océanos.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        let preguntas = [];
+        let preguntaActual = 0;
+        let errores = 0;
+        let puntaje = 0;
+        let tiempo = 15;
+        let mejorRecord = localStorage.getItem('mejorRecord') || 0;
+        let intervalo;
+
+        const sonidoCorrecto = new Audio('./correcto.mp3');
+        const sonidoIncorrecto = new Audio('./incorrecto.mp3');
+        const sonidoTiempoAgotado = new Audio('./tiempoAgotado.mp3');
+        const sonidoBoton = new Audio('./Click.mp3');
+        const sonidoAdvertenciaTiempo = new Audio('./tiempo.mp3');
+        const sonidoJuegoTerminado = new Audio('./finJuego.mp3');
+        const audioMotivadorCada10 = new Audio('./sigueasi.mp3');
+        const audioFinDelJuego = new Audio('./findeljuego.mp3');
+        const audioGanasteJuego = new Audio('./mensajemotivaforganadte.mp3');
+
+        const menuMusic = document.getElementById('menuMusic');
+        if (menuMusic) {
+            menuMusic.volume = 0.5;
+            menuMusic.play().catch(error => {
+                console.error('No se pudo reproducir la música del menú:', error);
+            });
+        } else {
+            console.error('Elemento de música del menú no encontrado');
+        }
+
+        async function cargarPreguntas() {
+            try {
+                const response = await fetch('preguntas.json');
+                const data = await response.json();
+                preguntas = data.preguntas.sort(() => 0.5 - Math.random());
+                mostrarPregunta();
+            } catch (error) {
+                console.error('Error al cargar las preguntas:', error);
+            }
+        }
+
+        function mostrarPregunta() {
+            if (preguntas.length === 0 || errores >= 5) {
+                finalizarJuego();
+                return;
+            }
+            tiempo = 15;
+            actualizarTiempo();
+            const pregunta = preguntas[preguntaActual];
+            document.getElementById('pregunta').textContent = pregunta.pregunta;
+            const opciones = document.getElementById('opciones');
+            opciones.innerHTML = '';
+            for (const opcion in pregunta.opciones) {
+                const button = document.createElement('button');
+                button.textContent = `${opcion.toUpperCase()}: ${pregunta.opciones[opcion]}`;
+                button.addEventListener('click', () => {
+                    sonidoBoton.play();
+                    verificarRespuesta(opcion);
+                    desactivarOpciones();
+                });
+                opciones.appendChild(button);
+            }
+            document.getElementById('contador-preguntas').textContent = `Pregunta: ${puntaje + 1}/${preguntas.length}`;
+            intervalo = setInterval(reducirTiempo, 1000);
+        }
+
+        function desactivarOpciones() {
+            const botones = document.querySelectorAll('#opciones button');
+            botones.forEach(boton => boton.disabled = true);
+        }
+
+        function verificarRespuesta(opcion) {
+            clearInterval(intervalo);
+            const pregunta = preguntas.splice(preguntaActual, 1)[0];
+            if (opcion === pregunta.respuestaCorrecta) {
+                puntaje++;
+                sonidoCorrecto.play();
+                mostrarMensaje('¡Correcto!', 'success');
+                if (puntaje % 10 === 0 && preguntas.length > 0) {
+                    mostrarMensaje('¡Asombroso, Vamos sigue así!', 'motivacion');
+                    audioMotivadorCada10.play();
+                }
+            } else {
+                errores++;
+                sonidoIncorrecto.play();
+                mostrarMensaje('¡Incorrecto!', 'error');
+            }
+            if (errores >= 5 || preguntas.length === 0) {
+                finalizarJuego();
+                return;
+            }
+            setTimeout(mostrarPregunta, 2000);
+        }
+
+        function reducirTiempo() {
+            tiempo--;
+            actualizarTiempo();
+            if (tiempo === 10) {
+                sonidoAdvertenciaTiempo.play();
+            }
+            if (tiempo <= 0) {
+                clearInterval(intervalo);
+                errores++;
+                sonidoTiempoAgotado.play();
+                mostrarMensaje('¡Tiempo agotado!', 'error');
+                setTimeout(mostrarPregunta, 2000);
+            }
+        }
+
+        function actualizarTiempo() {
+            document.getElementById('contador-tiempo').textContent = `Tiempo: ${tiempo}s`;
+        }
+
+        function mostrarMensaje(mensaje, tipo) {
+            const mensajeElemento = document.getElementById('mensaje');
+            mensajeElemento.textContent = mensaje;
+            mensajeElemento.className = tipo;
+            setTimeout(() => {
+                mensajeElemento.textContent = '';
+                mensajeElemento.className = '';
+            }, 2000);
+        }
+
+        function finalizarJuego() {
+            if (menuMusic) {
+                menuMusic.pause();
+            }
+            if (puntaje > mejorRecord) {
+                mejorRecord = puntaje;
+                localStorage.setItem('mejorRecord', mejorRecord);
+            }
+            if (errores >= 5) {
+                mostrarMensaje('Fin del juego. ¡No te desanimes! ¡Sigue intentándolo!', 'motivacion');
+                audioFinDelJuego.play();
+            } else {
+                mostrarMensaje('¡Felicidades! ¡Has completado todas las preguntas! Tu conocimiento de la Biblia es Asombroso', 'motivacion');
+                audioGanasteJuego.play();
+            }
+            setTimeout(() => {
+                // Ocultar el juego y mostrar la pantalla de inicio
+                document.getElementById('juego').classList.add('hidden');
+                document.getElementById('inicio').classList.remove('hidden');
+                document.getElementById('reglas').classList.remove('hidden');
+                document.getElementById('redes-sociales').classList.remove('hidden');
+                document.getElementById('contacto').classList.remove('hidden');
+
+                // Reiniciar variables del juego
+                preguntas = [];
+                preguntaActual = 0;
+                errores = 0;
+                puntaje = 0;
+                tiempo = 15;
+
+                // Actualizar el mejor récord en la pantalla
+                document.getElementById('mejor-record').textContent = mejorRecord;
+
+                // Reactivar la música del menú
+                if (menuMusic) {
+                    menuMusic.play();
+                }
+            }, errores >= 5 ? 6000 : 10000);
+        }
+
+        function iniciarJuego() {
+            // Ocultar todas las secciones excepto el juego
+            document.getElementById('inicio').classList.add('hidden');
+            document.getElementById('reglas').classList.add('hidden');
+            document.getElementById('redes-sociales').classList.add('hidden');
+            document.getElementById('contacto').classList.add('hidden');
+            document.getElementById('juego').classList.remove('hidden');
+            cargarPreguntas();
+        }
+
+        document.getElementById('mejor-record').textContent = mejorRecord;
+    </script>
+</body>
+</html>

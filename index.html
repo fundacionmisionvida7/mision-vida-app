@@ -1,0 +1,965 @@
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Meta Descripción -->
+    <meta name="description" content="Somos la Iglesia Cristiana Misión Vida en [Villa Maria]. Únete a nuestras reuniones dominicales, grupos de estudio y actividades comunitarias.">
+
+    <!-- Open Graph para Facebook y otras redes -->
+    <meta property="og:title" content="Iglesia Cristiana Misión Vida">
+    <meta property="og:description" content="Somos la Iglesia Cristiana Misión Vida en [Villa Maria]. Únete a nuestras reuniones dominicales, grupos de estudio y actividades comunitarias..">
+    <meta property="og:image" content="https://mision-vida-app.web.app/imagen-representativa.jpg">
+    <meta property="og:url" content="https://mision-vida-app.web.app/">
+    <meta property="og:type" content="website">
+  
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Iglesia Cristiana Misión Vida">
+    <meta name="twitter:description" content="Somos la Iglesia Cristiana Misión Vida en [Villa Maria]. Únete a nuestras reuniones dominicales, grupos de estudio y actividades comunitarias..">
+    <meta name="twitter:image" content="https://mision-vida-app.web.app/imagen-representativa.jpg">
+
+
+  <title>Iglesia Cristiana Misión Vida | [Villa Maria] | Comunidad de Fe</title>
+  
+
+  <link rel="canonical" href="https://mision-vida-app.web.app/">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="stylesBiblia.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('Service Worker registrado!'))
+        .catch((error) => console.error('Error:', error));
+    });
+  }
+</script>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Iglesia Cristiana Misión Vida",
+    "url": "https://mision-vida-app.web.app/",
+    "logo": "https://mision-vida-app.web.app/imagen-representativa.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54 9 3534 29-0100",
+      "contactType": "customer service",
+      "areaServed": "ES"
+    }
+  }
+  </script>
+
+
+  <script>
+    // Verificar actualizaciones cuando la app vuelve a primer plano
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'CHECK_UPDATE',
+          url: 'https://palabra-del-dia-backend.vercel.app/devotional'
+        });
+      }
+    });
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+
+
+
+<!-- Toast de Instalación Exitosa -->
+<div id="installToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header bg-success text-white">
+    <i class="bi bi-check-circle-fill me-2"></i>
+    <strong class="me-auto">¡App instalada!</strong>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+  </div>
+  <div class="toast-body">
+    La aplicación se instaló correctamente en tu dispositivo
+  </div>
+</div>
+
+<!-- Toast de App ya Instalada -->
+<div id="alreadyInstalledToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header bg-info text-white">
+    <i class="bi bi-info-circle-fill me-2"></i>
+    <strong class="me-auto">App instalada</strong>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+  </div>
+  <div class="toast-body">
+    Ya tienes la aplicación instalada en tu dispositivo
+  </div>
+</div>
+  
+
+
+
+
+<body>
+
+  <!-- Navbar lateral -->
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <div class="user-profile text-center">
+         <img id="userPhoto" src="https://firebasestorage.googleapis.com/v0/b/mision-vida-app.appspot.com/o/FotosPerfil%2Fimagen-default.jpg?alt=media" alt="Foto de perfil" class="profile-img">
+        <h6 id="userName">Usuario</h6>
+        <small id="userEmail">usuario@email.com</small>
+      </div>
+    </div>
+
+    <ul class="list-unstyled components">
+      <li class="active">
+        <a href="#"><i class="bi bi-house-door"></i> Inicio</a>
+      </li>
+      <li>
+        <a href="#bibliaSubmenu" data-bs-toggle="collapse">
+          <i class="bi bi-book"></i> Biblia
+        </a>
+        <ul class="collapse list-unstyled" id="bibliaSubmenu">
+
+          <li><a href="#" data-bs-toggle="modal" data-bs-target="#bibliaModal">Reina Valera 1960</a></li>
+          <li><a href="#" data-bs-toggle="modal" data-bs-target="#bibliaModal">Palabra de Dios para Todos</a></li>
+
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#prayerRequestModal">
+          <i class="bi bi-hand-index"></i> Pedidos de Oración
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#genericModalBibliaApp">
+          <i class="bi bi-collection-play"></i> Biblia App
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#genericModalGruposdevida">
+          <i class="bi bi-people"></i> Casas de Oración
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#dailyVerseModal">
+          <i class="bi bi-book"></i> Versículo del Día
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">
+          <i class="bi bi-envelope"></i> Comunicate con Nosotros
+        </a>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="juego/juego.html">
+          <i class="bi bi-controller"></i> Juego Bíblico
+        </a>
+      </li>
+
+
+      
+      <!-- Agregando redes sociales -->
+      <li class="social-media">
+        <h6 class="social-title">Síguenos en:</h6>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/misionvidaoficial?mibextid=ZbWKwL" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/misionvidaoficial/" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.youtube.com/@misionvidaoficial9413" target="_blank"><i class="bi bi-youtube"></i></a>
+        </div>
+      </li>
+
+
+
+<!-- Dentro del <ul class="list-unstyled components"> -->
+  <li class="nav-item install-button-wrapper">
+    <button id="installButton" class="btn btn-success w-100">
+      <i class="bi bi-download me-2"></i>Instalar App
+    </button>
+  </li>
+  
+  <!-- Colocar justo antes del botón de cerrar sesión -->
+  <li>
+    <a href="#" id="logoutBtn"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
+  </li>
+    </ul>
+
+
+
+
+<!-- Input oculto para subir foto -->
+<input type="file" id="uploadProfileImage" accept="image/*" style="display: none;">
+
+  </nav>
+
+  <!-- Overlay para cerrar el sidebar -->
+  <div id="overlay" class="overlay"></div>
+
+  <!-- Contenido Principal -->
+  <div id="content">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button type="button" id="sidebarCollapse" class="btn">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container main-content">
+      <!-- Header Banner -->
+      <div class="header-banner">
+       
+      </div>
+
+      <div class="welcome-section text-center">
+        <h1>Bienvenido a Mision Vida</h1>
+        <p>"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos." - Mateo 18:20</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="bi bi-people"></i>
+          <h3>Nuestras reuniones</h3>
+          <p>-"Sabados - Reunion General 21:00 HS"</p>
+          <p>-"Jueves - Reunion de Oracion 21:00 HS"</p>
+        </div>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <!-- Cambiar el <i> por un botón real -->
+          <button id="openDevotionalButton" class="btn btn-link p-0 border-0 bg-transparent">
+            <i class="bi bi-book fs-1"></i>
+          </button>
+          <h3>Palabra del Día</h3>
+          <p>Una palabra bíblica diaria para recibir inspiración.</p>
+        </div>
+      </div>
+
+        </div>
+        <div class="feature-card">
+          <i class="bi bi-camera" data-bs-toggle="modal" data-bs-target="#communityModal"></i>
+          <h3>Comunidad</h3>
+          <p>Galeria de Imagenes</p>
+        </div>
+        <div class="feature-card">
+          <i id="openEventsButton" class="bi bi-calendar-event"></i>
+          <h3>Eventos</h3>
+          <p>Próximas actividades</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="bi bi-youtube" id="checkLiveButton" data-bs-toggle="modal" data-bs-target="#genericModal"></i>
+          <h3>Transmision en vivo</h3>
+          <p>Mira el culto en vivo</p>
+        </div>
+        <div class="feature-card">
+          <i id="openResourcesButton" class="bi bi-collection-play"></i>
+          <h3>Recursos</h3>
+          <p>Material espiritual</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- En la sección de features-grid, después del card de "Palabra del Día" -->
+<div class="features-grid">
+  <div class="feature-card">
+    <button id="enableNotifications" class="btn btn-link p-0 border-0 bg-transparent">
+      <i class="bi bi-bell fs-1"></i>
+    </button>
+    <h3>Notificaciones</h3>
+    <p>Recibe la Palabra del Día y versiculos cada mañana</p>
+  </div>
+</div>
+
+
+  <!-- Modal de Login actualizado -->
+  <div class="modal fade" id="loginModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Iniciar Sesión</h5>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="loginEmail" required autocomplete="username">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginPassword" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+          </form>
+          <div class="text-center mt-3">
+            <p>O inicia sesión con:</p>
+            <button id="googleLoginBtn" class="btn btn-outline-danger w-100 mb-2">
+              <i class="bi bi-google me-2"></i>Google
+            </button>
+            <button id="anonymousLoginBtn" class="btn btn-outline-secondary w-100">
+              <i class="bi bi-person-fill me-2"></i>Ingreso Anónimo
+            </button>
+          </div>
+          <hr>
+          <p class="text-center">¿No tienes cuenta?</p>
+          <button class="btn btn-outline-primary w-100" id="showRegisterBtn">Crear Cuenta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Registro -->
+  <div class="modal fade" id="registerModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Crear Cuenta</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="registerName" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="registerEmail" required autocomplete="username">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="registerPassword" autocomplete="current-password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- Modal adaptado para la Biblia -->
+<div class="modal fade" id="bibliaModal" tabindex="-1" aria-labelledby="bibliaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="bibliaModalLabel">Selecciona una Versión de la Biblia</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body biblia-container">
+        <div class="version-container">
+          <select id="version" onchange="cambiarVersion()">
+            <option value="RVR60">Reina Valera (Actualizada)</option>
+            <option value="PDT">Palabra de Dios para Todos</option>
+          </select>
+        </div>
+        <div class="button-container"> 
+          <button onclick="cargarTestamento('antiguo')">Antiguo Testamento</button>
+          <button onclick="cargarTestamento('nuevo')">Nuevo Testamento</button>
+        </div>
+        <select id="libros" onchange="cargarCapitulos()">
+          <option value="">Selecciona un libro</option>
+        </select>
+        <select id="capitulos" onchange="mostrarCapitulo()">
+          <option value="">Selecciona un capítulo</option>
+        </select>
+        <select id="versiculos" onchange="mostrarVersiculo()">
+          <option value="">Selecciona un versículo</option>
+        </select>
+        <div id="capitulo"></div>
+        <div id="versiculo"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Modal para la sección Comunidad -->
+<div class="modal fade" id="communityModal" tabindex="-1" aria-labelledby="communityModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="communityModalLabel">Comunidad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Introducción de la sección -->
+        <section class="community-intro">
+          <h2>Bienvenido a Nuestra Comunidad</h2>
+          <p>
+            Aquí puedes conocer más sobre nuestra comunidad, ver momentos destacados
+            y participar en nuestras actividades. ¡Únete a nosotros y forma parte
+            de esta experiencia única!
+          </p>
+        </section>
+
+        <!-- Galería de fotos -->
+        <section class="community-gallery">
+          <h3>Galería de Fotos</h3>
+          <div class="gallery-grid">
+
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal para mostrar imagen ampliada -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid" alt="Imagen ampliada">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Youtube / Modal reutilizable -->
+<div class="modal fade" id="genericModal" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="genericModalLabel">Contenido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- Aquí se cargará el contenido dinámico -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal de Éxito -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="successModalLabel">¡Éxito!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+        <p class="mt-3">Foto de perfil actualizada correctamente</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Error -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-white">
+        <h5 class="modal-title" id="errorModalLabel">Error</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <i class="bi bi-exclamation-circle-fill text-danger" style="font-size: 3rem;"></i>
+        <p class="mt-3" id="errorMessage">Ha ocurrido un error al actualizar la foto de perfil</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de Carga -->
+<div class="modal fade" id="loadingModal" tabindex="-1" aria-labelledby="loadingModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body text-center p-4">
+        <div class="spinner-border text-primary mb-3" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+        <p>Subiendo imagen...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal de Palabra del Día -->
+<div class="modal fade" id="devotionalModal" tabindex="-1" aria-labelledby="devotionalModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-light">
+        <h5 class="modal-title" id="devotionalModalLabel">Palabra del Día</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="devotionalContent">
+        
+        <!-- Contenido se carga aquí -->
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-success" id="shareWhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </button>
+          <button type="button" class="btn btn-primary" id="shareFacebook">
+            <i class="fab fa-facebook"></i>
+          </button>
+          <button type="button" class="btn btn-secondary" id="copyText">
+            <i class="fas fa-copy"></i>
+          </button>
+        </div>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Botón para abrir el modal
+<button id="openResourcesButton" class="btn btn-primary">Recursos</button>  -->
+
+<!-- Modal para mostrar los recursos -->
+<div class="modal fade" id="resourcesModal" tabindex="-1" aria-labelledby="resourcesModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resourcesModalLabel">Nueva Vida En Cristo: Recursos para el Discipulado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="resourcesContent">
+        <!-- Los archivos PDF se cargarán aquí -->
+        <p>Cargando recursos...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Botón para abrir el modal de eventos
+<button id="openEventsButton" class="btn btn-primary">Ver Eventos</button> -->
+
+<!-- Modal para mostrar los eventos -->
+<div class="modal fade" id="eventsModal" tabindex="-1" aria-labelledby="eventsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventsModalLabel">Eventos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="eventsContent">
+        <!-- Contenido del evento -->
+        <div id="currentEvent">
+          <p>Cargando evento...</p>
+        </div>
+        <!-- Botón para mostrar eventos viejos -->
+        <button id="showOldEventsButton" class="btn btn-secondary mt-3">Mostrar Eventos Viejos</button>
+        <!-- Contenedor para eventos viejos -->
+        <div id="oldEventsList" class="mt-3" style="display: none;">
+          <h6>Eventos Anteriores:</h6>
+          <div id="oldEventsContent"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para mostrar la imagen/video ampliada -->
+<div class="modal fade" id="eventMediaModal" tabindex="-1" aria-labelledby="eventMediaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="eventMediaModalLabel">Evento</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="eventMediaContent">
+        <!-- Contenido ampliado (imagen o video) -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- Contenedor para el mensaje de éxito -->
+<div id="successNotification" class="alert alert-success position-fixed top-100 end-0 m-3" style="display: none; z-index: 9999;">
+  ¡Tu mensaje ha sido enviado con éxito!
+</div>
+
+<!-- Modal para Contacto -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="contactModalLabel">Contacto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="contactForm">
+          <input type="hidden" name="_subject" value="Nuevo mensaje desde la página web">
+          <input type="hidden" name="_captcha" value="false"> <!-- Desactivar CAPTCHA si no lo necesitas -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Mensaje</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div id="errorMessage" style="display: none; color: red;">
+          Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- Modal para Pedidos de Oración -->
+<div class="modal fade" id="prayerRequestModal" tabindex="-1" aria-labelledby="prayerRequestModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="prayerRequestModalLabel">Pedidos de Oración</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="prayerRequestForm">
+          <input type="hidden" name="_subject" value="Nuevo pedido de oración">
+          <input type="hidden" name="_captcha" value="false"> <!-- Desactivar CAPTCHA si no lo necesitas -->
+          <div class="mb-3">
+            <label for="prayerName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="prayerName" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="prayerEmail" class="form-label">Correo Electrónico (opcional)</label>
+            <input type="email" class="form-control" id="prayerEmail" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="prayerTitle" class="form-label">Asunto de la Solicitud</label>
+            <input type="text" class="form-control" id="prayerTitle" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="prayerDescription" class="form-label">Descripción de la Solicitud</label>
+            <textarea class="form-control" id="prayerDescription" name="description" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Solicitud</button>
+        </form>
+        <div id="prayerErrorMessage" style="display: none; color: red;">
+          Hubo un error al enviar la solicitud. Por favor, intenta nuevamente.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contenedor para el mensaje de éxito -->
+<div id="prayerSuccessNotification" class="alert alert-success position-fixed top-0 end-0 m-3" style="display: none; z-index: 9999;">
+  ¡Tu solicitud de oración ha sido enviada con éxito!
+</div>
+
+
+
+
+
+<!-- Grupos de vida / Modal reutilizable -->
+<div class="modal fade" id="genericModalGruposdevida" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="genericModalLabel">Casas de Oración</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- Aquí se cargará el contenido dinámico -->
+        <section id="GrupoVida">
+          <h2>Grupos de Vida de Varones</h2>
+          <div class="GrupoVida">
+                  <div class="descripcion">
+                  <p>- Lunes 21:00 Horas: Dirección Mendoza 945 Barrio San Justo - Villa Maria</p>
+                  <p>- Martes 21:00 Horas: Dirección Las Heras 2326 Barrio San Juan Bautista - Villa Maria</p>
+                  <p>- Miercoles 21:00 Horas: Dirección Gorrti 250 Barrio San Martin - Villa Maria</p>
+                  <p>- Viernes 21:30 Horas: Dirección Paraguay 234 Barrio Las Playas - Villa Maria</p>
+              </div>
+      </section>
+
+      <section id="GrupoVida">
+          <h2>Grupos de Vida de  Mujeres</h2>
+          <div class="GrupoVida">
+                  <div class="descripcion">
+                      <p>- Lunes 16:00 Horas: Dirección Modesto Moreno 1096 ezq. Malvinas Argentinas Barrio Rivadavia - Villa Maria</p>
+                      <p>- Lunes 17:00 Horas: Dirección Gorrti 250 Barrio San Martin - Villa Maria</p>
+                      <p>- Lunes 21:00 Horas: Dirección General Paz - Villa Nueva</p>
+                      <p>- Martes 9:00 Horas: Dirección Miramar 644 Barrio Bello Horizonte - Villa Maria</p>
+                      <p>- Martes 16:00 Horas: Dirección Francia 330 Barrio Las Playas - Villa Maria</p>
+                      <p>- Martes 16:00 Horas: Dirección Francia 330 Barrio Las Playas - Villa Maria</p>
+                      <p>- Martes 20:30 Horas: Dirección Avenda Barbieris ezq. Lago Fontana Barrio Golf - Villa Nueva</p>
+                      <p>- Miercoles 15:00 Horas: Dirección Paraguay 250 Barrio Las Playas - Villa Maria</p>
+                      <p>- Miercoles 15:30 Horas: Dirección Gorrti 250 Barrio San Martin - Villa Maria</p>
+                      <p>- Miercoles 16:30 Horas: Dirección Chiclana 820 Barrio La Calera - Villa Maria</p>
+                      <p>- Miercoles 18:00 Horas: Dirección Entre Rios 2635 - Villa Maria</p>
+                      <p>- Jueves 15:00 Horas: Dirección Las Heras 2326 Barrio San Juan Bautista - Villa Maria</p>
+              </div>
+          </div>
+      </section>
+
+      <section id="GrupoVida">
+          <h2>"Grupos de Vida de jovenes"</h2>
+          <div class="GrupoVida">
+                  <div class="descripcion">
+                      <h4>Grupos de Vida de jovenes (Chicas)</h4>
+                      <p>Lunes 21:00 Horas: Dirección Gorrti 250 Barrio San Martin - Villa Maria</p>
+                      <p>-</p>
+                      <h4>Grupos de Vida de jovenes (Mixto)</h4>
+                      <p>Martes 21:00 Horas: Dirección Variada Consultar a 3535667702</p>
+              </div>
+      </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Biblia App / Modal reutilizable -->
+<div class="modal fade" id="genericModalBibliaApp" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="genericModalLabel">Contenido Biblia App</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modalContent">
+        <!-- Aquí se cargará el contenido dinámico -->
+        <section id="series-video" class="scroll-horizontal">
+          <h2>Biblia APP</h2>
+          <div class="serie-container">
+              <div class="serie">
+                  <h3>Capítulo 1 - Génesis 1: 1/5</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/A2eF_lFryqQ" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 2 - Génesis 1: 6/8</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/WazAaENNJcU" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 3 - Génesis 1: 9/13</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/mvgwVBqfz1Y" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 4 - Génesis 1: 14/19</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/_8GWOSzT9Rc" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 5 - Génesis 1: 20/23</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/7n0ArvhCxio" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 6 - Génesis 1: 24/25</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/_iMgKoy5yi0" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 7 - Génesis 1: 26/27</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/P9Q1iMOcFFs" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 8 - Génesis 1: 27/31</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/Z8cH1IZBSlg" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <div class="serie">
+                  <h3>Capítulo 9 - Génesis 2: 1/14</h3>
+                  <iframe width="280" height="157" src="https://www.youtube.com/embed/3yoZVhUr-Pw" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <!-- Añade más series según sea necesario -->
+          </div>
+      </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal para el Versículo Diario -->
+<div class="modal fade" id="dailyVerseModal" tabindex="-1" aria-labelledby="dailyVerseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dailyVerseModalLabel">Versículo Diario</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="verseText">Cargando versículo...</p>
+        <small id="verseReference" class="text-muted"></small>
+        <div class="d-flex justify-content-center mt-3">
+          <button id="toggleVersionBtn" class="btn btn-sm btn-outline-secondary">Cambiar Versión</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Agrega este modal al final de tu HTML antes de los scripts -->
+<div class="modal fade" id="installOptionsModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Opciones de Instalación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <button id="proceedInstallButton" class="btn btn-success w-100 mb-3">
+          <i class="bi bi-download me-2"></i>Instalar App
+        </button>
+        <button id="shareAppButton" class="btn btn-primary w-100">
+          <i class="bi bi-share me-2"></i>Compartir App
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para opciones de compartir -->
+<div class="modal fade" id="shareOptionsModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Compartir App</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div id="qrcode" class="mb-3"></div>
+        <button id="copyLinkButton" class="btn btn-outline-secondary w-100 mb-2">
+          <i class="bi bi-link-45deg me-2"></i>Copiar Enlace
+        </button>
+        <button id="nativeShareButton" class="btn btn-primary w-100">
+          <i class="bi bi-share-fill me-2"></i>Compartir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal de Activación Exitosa -->
+<div class="modal fade" id="notificationActivatedModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title"><i class="bi bi-bell-fill me-2"></i>Notificaciones Activadas</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>¡Recibirás la Palabra del Día cada mañana a las 8:00 AM!</p>
+        <p class="text-muted small">Puedes administrar las notificaciones en la configuración de tu navegador.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Toast de conexión -->
+<div id="connectionToast" class="toast position-fixed bottom-0 end-0 m-3" role="alert">
+  <div id="connectionToastBody" class="toast-body"></div>
+</div>
+
+<!-- Bootstrap Icons (en <head>) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+
+
+<footer>
+  <p>&copy; 2025 Iglesia Cristiana Misión Vida. Todos los derechos reservados.</p>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="scriptBiblia.js"></script>
+
+  
+</body>
+</html>

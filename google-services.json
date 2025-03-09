@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "521021841760",
+    "project_id": "mision-vida-app",
+    "storage_bucket": "mision-vida-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521021841760:android:c52b52186329e047593e05",
+        "android_client_info": {
+          "package_name": "com.Mision.Vida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521021841760-ohvivaslpe0h4d04ac8n9jqbkm06qn3d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Mision.Vida",
+            "certificate_hash": "b9dabafd3296982b980b6f16e19d0dc769246a20"
+          }
+        },
+        {
+          "client_id": "521021841760-1g3r0r90fknqiavppvvb8amqg5rf32ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnblJwr0Gw4HoNq1d_Es9KWMMaRfcoAQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521021841760-1g3r0r90fknqiavppvvb8amqg5rf32ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521021841760-a6otd7jk77vc5o6qk9mso97n4ctfl5j6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Mision.Vida"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521021841760:android:d1d23d2dcf8e99a3593e05",
+        "android_client_info": {
+          "package_name": "com.mycompany.misionvida"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521021841760-pdncsr5m3oda75ib89r7mod7rh65re4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.misionvida",
+            "certificate_hash": "b9dabafd3296982b980b6f16e19d0dc769246a20"
+          }
+        },
+        {
+          "client_id": "521021841760-1g3r0r90fknqiavppvvb8amqg5rf32ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnblJwr0Gw4HoNq1d_Es9KWMMaRfcoAQU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521021841760-1g3r0r90fknqiavppvvb8amqg5rf32ib.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521021841760-a6otd7jk77vc5o6qk9mso97n4ctfl5j6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Mision.Vida"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

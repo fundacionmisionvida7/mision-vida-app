@@ -1,0 +1,22 @@
+const express = require('express');
+const fetch = require('node-fetch'); // Para hacer solicitudes HTTP
+const app = express();
+const PORT = 3000;
+
+// Endpoint para obtener el versículo diario
+app.get('/api/versiculo', async (req, res) => {
+  try {
+    const response = await fetch('https://api.biblia.com/v1/bible/content/RVR60/random?key=51c0f63e0030bf429678817b2704c31e');
+    if (!response.ok) throw new Error('Error al cargar el versículo');
+    const verseText = await response.text();
+    res.send(verseText); // Envía el versículo al frontend
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al obtener el versículo');
+  }
+});
+
+// Inicia el servidor
+app.listen(PORT, () => {
+  console.log(`Servidor backend en http://localhost:${PORT}`);
+});

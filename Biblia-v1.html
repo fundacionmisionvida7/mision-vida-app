@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblia Cristiana Completa en Español</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pathway+Gothic+One&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="hero-content">
+            <h1>Biblia Digital Cristiana</h1>
+            <p>"Selecciona el Testamento"</p>
+            <div class="version-container">
+                <select id="version" onchange="cambiarVersion()">
+                    <option value="RVR60">Reina Valera (Actualizada)</option>
+                    <option value="PDT">Palabra de Dios para Todos</option>
+                </select>
+            </div>
+        </div>
+
+
+    <div class="button-container"> 
+
+      <button onclick="cargarTestamento('antiguo')">Antiguo Testamento</button>
+      <button onclick="cargarTestamento('nuevo')">Nuevo Testamento</button>
+
+
+    </div>
+    <select id="libros" onchange="cargarCapitulos()">
+      <option value="">Selecciona un libro</option>
+    </select>
+
+    <select id="capitulos" onchange="mostrarCapitulo()">
+      <option value="">Selecciona un capítulo</option>
+    </select>
+
+    <select id="versiculos" onchange="mostrarVersiculo()">
+      <option value="">Selecciona un versículo</option>
+    </select>
+    
+    <div id="capitulo"></div>
+    <div id="versiculo"></div>
+
+    
+
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Iglesia Misión Vida. Todos los derechos reservados. <a href="https://www.facebook.com/misionvidaoficial?mibextid=ZbWKwL" target="_blank" class="social-button facebook">Facebook</a> <a href="https://www.instagram.com/misionvidaoficial/" target="_blank" class="social-button instagram">Instagram</a> <a href="https://www.youtube.com/@misionvidaoficial9413" target="_blank" class="social-button youtube">YouTube</a> </p>
+        
+    </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

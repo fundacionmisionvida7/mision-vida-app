@@ -1,0 +1,905 @@
+{
+    "preguntas": [
+        {
+            "pregunta": "¿Quién construyó el arca?",
+            "opciones": {
+                "a": "Moisés",
+                "b": "Noé",
+                "c": "David"
+            },
+            "respuestaCorrecta": "b"
+        },
+        {
+            "pregunta": "¿Quién fue tragado por un pez grande?",
+            "opciones": {
+                "a": "Jonás",
+                "b": "Pablo",
+                "c": "Pedro"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Cuál es el primer libro de la Biblia?",
+            "opciones": {
+                "a": "Génesis",
+                "b": "Éxodo",
+                "c": "Levítico"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién escribió la carta a los Romanos?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre es conocido por haber caminado sobre el agua?",
+            "opciones": {
+                "a": "Pedro",
+                "b": "Juan",
+                "c": "Pablo"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el apóstol que traicionó a Jesús?",
+            "opciones": {
+                "a": "Judas Iscariote",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia contiene el Sermón del Monte?",
+            "opciones": {
+                "a": "Mateo",
+                "b": "Marcos",
+                "c": "Lucas"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue tragado por un pez grande?",
+            "opciones": {
+                "a": "Jonás",
+                "b": "Isaías",
+                "c": "Ezequiel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué rey de Judá fue conocido por su gran fe en Dios?",
+            "opciones": {
+                "a": "Ezequías",
+                "b": "Josías",
+                "c": "Salomón"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido como el 'hombre conforme al corazón de Dios'?",
+            "opciones": {
+                "a": "David",
+                "b": "Salomón",
+                "c": "Saúl"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió la carta a los Gálatas?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer hombre en ser creado según la Biblia?",
+            "opciones": {
+                "a": "Adán",
+                "b": "Noé",
+                "c": "Moisés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Cuál es el libro de la Biblia que relata la historia de Ester?",
+            "opciones": {
+                "a": "Ester",
+                "b": "Rut",
+                "c": "Nehemías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer profeta del Antiguo Testamento?",
+            "opciones": {
+                "a": "Samuel",
+                "b": "Elías",
+                "c": "Isaías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia es conocido como el libro de la sabiduría?",
+            "opciones": {
+                "a": "Proverbios",
+                "b": "Job",
+                "c": "Eclesiastés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por su lealtad a su suegra Noemí?",
+            "opciones": {
+                "a": "Rut",
+                "b": "Esther",
+                "c": "Raquel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Cuál es el último libro del Antiguo Testamento?",
+            "opciones": {
+                "a": "Malaquías",
+                "b": "Zacarías",
+                "c": "Nehemías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido como el 'apóstol de los gentiles'?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia relata la caída de Jericó?",
+            "opciones": {
+                "a": "Josué",
+                "b": "Jueces",
+                "c": "Éxodo"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el último juez de Israel?",
+            "opciones": {
+                "a": "Samuel",
+                "b": "Gedeón",
+                "c": "Sansón"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue conocido por sus visiones del futuro?",
+            "opciones": {
+                "a": "Daniel",
+                "b": "Isaías",
+                "c": "Jeremías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió el libro de 1 Juan?",
+            "opciones": {
+                "a": "Juan",
+                "b": "Pedro",
+                "c": "Pablo"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer hombre en ser tentado por la serpiente?",
+            "opciones": {
+                "a": "Adán",
+                "b": "Caín",
+                "c": "Noé"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido como el 'hijo de Dios' en el Nuevo Testamento?",
+            "opciones": {
+                "a": "Jesús",
+                "b": "Juan",
+                "c": "Pedro"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió la carta a los Filipenses?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue la madre de Juan el Bautista?",
+            "opciones": {
+                "a": "Isabel",
+                "b": "María",
+                "c": "Marta"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el rey que dividió el reino de Israel en dos partes?",
+            "opciones": {
+                "a": "Salomón",
+                "b": "Saúl",
+                "c": "Roboam"
+            },
+            "respuestaCorrecta": "c"
+        },
+        {
+            "pregunta": "¿Qué profeta tuvo una visión del cielo con ángeles?",
+            "opciones": {
+                "a": "Isaías",
+                "b": "Daniel",
+                "c": "Ezequiel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia está lleno de cánticos y alabanzas?",
+            "opciones": {
+                "a": "Salmos",
+                "b": "Cantares",
+                "c": "Proverbios"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el rey de Israel conocido por su sabiduría?",
+            "opciones": {
+                "a": "Salomón",
+                "b": "David",
+                "c": "Saúl"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió el libro de Hebreos?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue rescatada por Moisés del río Nilo?",
+            "opciones": {
+                "a": "La hija del faraón",
+                "b": "Miriam",
+                "c": "Débora"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido como el 'hermano de Jesús'?",
+            "opciones": {
+                "a": "Santiago",
+                "b": "Juan",
+                "c": "Judas"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió el libro de 2 Corintios?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia habla sobre la creación del mundo?",
+            "opciones": {
+                "a": "Génesis",
+                "b": "Éxodo",
+                "c": "Levítico"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre luchó contra Goliat?",
+            "opciones": {
+                "a": "David",
+                "b": "Saúl",
+                "c": "Samuel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer mártir cristiano?",
+            "opciones": {
+                "a": "Esteban",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue conocido por sus parábolas y visiones?",
+            "opciones": {
+                "a": "Ezequiel",
+                "b": "Isaías",
+                "c": "Jeremías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia es conocido como el 'Evangelio de los pobres'?",
+            "opciones": {
+                "a": "Lucas",
+                "b": "Mateo",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió la carta a los Tesalonicenses?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por ser la madre de Samuel?",
+            "opciones": {
+                "a": "Ana",
+                "b": "Miriam",
+                "c": "Débora"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido como el 'apóstol de los gentiles'?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia contiene las leyes de Moisés?",
+            "opciones": {
+                "a": "Levítico",
+                "b": "Deuteronomio",
+                "c": "Éxodo"
+            },
+            "respuestaCorrecta": "c"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por ser la madre de Juan el Bautista?",
+            "opciones": {
+                "a": "Isabel",
+                "b": "María",
+                "c": "Marta"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el rey de Israel que construyó el Templo de Jerusalén?",
+            "opciones": {
+                "a": "Salomón",
+                "b": "David",
+                "c": "Ezequías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió el libro de 1 Pedro?",
+            "opciones": {
+                "a": "Pedro",
+                "b": "Juan",
+                "c": "Pablo"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia habla sobre la vida de los jueces de Israel?",
+            "opciones": {
+                "a": "Jueces",
+                "b": "Josué",
+                "c": "Samuel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido como el primer patriarca de Israel?",
+            "opciones": {
+                "a": "Abraham",
+                "b": "Isaac",
+                "c": "Jacob"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol escribió la carta a los Hebreos?",
+            "opciones": {
+                "a": "Pablo",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por su fe y valentía en la corte del rey Asuero?",
+            "opciones": {
+                "a": "Ester",
+                "b": "Rut",
+                "c": "Rebeca"
+            },
+            "respuestaCorrecta": "a"
+        },
+
+        {
+            "pregunta": "¿Quién fue el profeta que enfrentó a los profetas de Baal en el Monte Carmelo?",
+            "opciones": {
+                "a": "Elías",
+                "b": "Isaías",
+                "c": "Jeremías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue lanzado a un foso de leones pero salió ileso?",
+            "opciones": {
+                "a": "Daniel",
+                "b": "José",
+                "c": "Moisés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue la madre de Jesús?",
+            "opciones": {
+                "a": "María",
+                "b": "Marta",
+                "c": "Isabel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol negó a Jesús tres veces antes de que cantara el gallo?",
+            "opciones": {
+                "a": "Pedro",
+                "b": "Juan",
+                "c": "Tomás"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién escribió el libro del Apocalipsis?",
+            "opciones": {
+                "a": "Juan",
+                "b": "Pedro",
+                "c": "Pablo"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué rey de Israel fue conocido por construir el Templo en Jerusalén?",
+            "opciones": {
+                "a": "Salomón",
+                "b": "David",
+                "c": "Saúl"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue llamado 'el amigo de Dios'?",
+            "opciones": {
+                "a": "Abraham",
+                "b": "Isaac",
+                "c": "Jacob"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer mártir cristiano, apedreado hasta la muerte?",
+            "opciones": {
+                "a": "Esteban",
+                "b": "Pedro",
+                "c": "Santiago"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol es conocido como 'el discípulo amado'?",
+            "opciones": {
+                "a": "Juan",
+                "b": "Pedro",
+                "c": "Santiago"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por convertir su hogar en un lugar de oración para el apóstol Pablo?",
+            "opciones": {
+                "a": "Lidia",
+                "b": "Dorcas",
+                "c": "Priscila"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia relata la historia de la liberación de Israel de Egipto?",
+            "opciones": {
+                "a": "Éxodo",
+                "b": "Levítico",
+                "c": "Deuteronomio"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer hombre creado por Dios?",
+            "opciones": {
+                "a": "Adán",
+                "b": "Noé",
+                "c": "Moisés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue conocido por su fuerza sobrehumana en el Antiguo Testamento?",
+            "opciones": {
+                "a": "Sansón",
+                "b": "David",
+                "c": "Josué"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida por proteger a los espías israelitas en Jericó?",
+            "opciones": {
+                "a": "Rahab",
+                "b": "Rut",
+                "c": "Ester"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el líder que sucedió a Moisés y condujo a Israel a la Tierra Prometida?",
+            "opciones": {
+                "a": "Josué",
+                "b": "Caleb",
+                "c": "Gedeón"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol fue conocido por dudar de la resurrección de Jesús hasta verlo con sus propios ojos?",
+            "opciones": {
+                "a": "Tomás",
+                "b": "Pedro",
+                "c": "Juan"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue llevado al cielo en un torbellino?",
+            "opciones": {
+                "a": "Elías",
+                "b": "Enoc",
+                "c": "Moisés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido por ser 'un varón perfecto y recto, temeroso de Dios y apartado del mal'?",
+            "opciones": {
+                "a": "Job",
+                "b": "Noé",
+                "c": "Abraham"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue la reina que desafió la ley del rey para salvar a su pueblo?",
+            "opciones": {
+                "a": "Ester",
+                "b": "Rut",
+                "c": "Débora"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue conocido por caminar desnudo durante tres años como señal para Egipto y Etiopía?",
+            "opciones": {
+                "a": "Isaías",
+                "b": "Jeremías",
+                "c": "Oseas"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue llamado por Dios mientras dormía, siendo un niño?",
+            "opciones": {
+                "a": "Samuel",
+                "b": "David",
+                "c": "Moisés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué discípulo fue conocido por ser recaudador de impuestos antes de seguir a Jesús?",
+            "opciones": {
+                "a": "Mateo",
+                "b": "Pedro",
+                "c": "Santiago"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue la esposa de Isaac y madre de Jacob y Esaú?",
+            "opciones": {
+                "a": "Rebeca",
+                "b": "Raquel",
+                "c": "Sara"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer ayudó a salvar a Moisés cuando era un bebé?",
+            "opciones": {
+                "a": "La hija del faraón",
+                "b": "Miriam",
+                "c": "Débora"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia describe la creación del hombre y la mujer?",
+            "opciones": {
+                "a": "Génesis",
+                "b": "Éxodo",
+                "c": "Levítico"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue la madre de Jesús?",
+            "opciones": {
+                "a": "Marta",
+                "b": "María",
+                "c": "Débora"
+            },
+            "respuestaCorrecta": "b"
+        },
+        {
+            "pregunta": "¿Qué profeta desafió a los profetas de Baal en el Monte Carmelo?",
+            "opciones": {
+                "a": "Elías",
+                "b": "Jeremías",
+                "c": "Isaías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el líder de Israel después de Moisés?",
+            "opciones": {
+                "a": "Josué",
+                "b": "Caleb",
+                "c": "Aarón"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido por su paciencia en medio del sufrimiento?",
+            "opciones": {
+                "a": "Job",
+                "b": "Pablo",
+                "c": "David"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué discípulo negó a Jesús tres veces?",
+            "opciones": {
+                "a": "Pedro",
+                "b": "Juan",
+                "c": "Tomás"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué rey mandó matar a los niños en Belén?",
+            "opciones": {
+                "a": "Herodes",
+                "b": "César",
+                "c": "Nabucodonosor"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién interpretó los sueños del Faraón en Egipto?",
+            "opciones": {
+                "a": "José",
+                "b": "Moisés",
+                "c": "Daniel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer se convirtió en una columna de sal?",
+            "opciones": {
+                "a": "La esposa de Lot",
+                "b": "Sara",
+                "c": "Raquel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia contiene la historia de Sansón?",
+            "opciones": {
+                "a": "Jueces",
+                "b": "Josué",
+                "c": "Samuel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido por su fortaleza física?",
+            "opciones": {
+                "a": "Sansón",
+                "b": "David",
+                "c": "Saúl"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el primer rey de Israel?",
+            "opciones": {
+                "a": "Saúl",
+                "b": "David",
+                "c": "Salomón"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre construyó el templo en Jerusalén?",
+            "opciones": {
+                "a": "Salomón",
+                "b": "David",
+                "c": "Nehemías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia contiene el pasaje 'El Señor es mi pastor, nada me faltará'?",
+            "opciones": {
+                "a": "Salmos",
+                "b": "Proverbios",
+                "c": "Isaías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue la madre del profeta Samuel?",
+            "opciones": {
+                "a": "Ana",
+                "b": "Sara",
+                "c": "Marta"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué rey de Israel fue conocido por escribir muchos de los Salmos?",
+            "opciones": {
+                "a": "David",
+                "b": "Salomón",
+                "c": "Saúl"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia narra la historia de la liberación de los israelitas de Egipto?",
+            "opciones": {
+                "a": "Éxodo",
+                "b": "Números",
+                "c": "Deuteronomio"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el discípulo que dudó de la resurrección de Jesús hasta ver sus heridas?",
+            "opciones": {
+                "a": "Tomás",
+                "b": "Pedro",
+                "c": "Andrés"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué mujer fue conocida como la primera jueza de Israel?",
+            "opciones": {
+                "a": "Débora",
+                "b": "Rut",
+                "c": "Sara"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido como el 'amigo de Dios'?",
+            "opciones": {
+                "a": "Abraham",
+                "b": "Moisés",
+                "c": "David"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué apóstol fue conocido como el 'discípulo amado'?",
+            "opciones": {
+                "a": "Juan",
+                "b": "Pedro",
+                "c": "Santiago"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué profeta fue lanzado al foso de los leones?",
+            "opciones": {
+                "a": "Daniel",
+                "b": "Jeremías",
+                "c": "Elías"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el hombre que subió al cielo en un torbellino?",
+            "opciones": {
+                "a": "Elías",
+                "b": "Moisés",
+                "c": "Enoc"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué libro de la Biblia habla sobre la historia de los jueces de Israel?",
+            "opciones": {
+                "a": "Jueces",
+                "b": "Josué",
+                "c": "Samuel"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Qué hombre fue conocido por su fidelidad a Dios en la tierra de Uz?",
+            "opciones": {
+                "a": "Job",
+                "b": "Noé",
+                "c": "Abraham"
+            },
+            "respuestaCorrecta": "a"
+        },
+        {
+            "pregunta": "¿Quién fue el hombre que construyó un altar en el monte Moriah?",
+            "opciones": {
+                "a": "Abraham",
+                "b": "Isaac",
+                "c": "Jacob"
+            },
+            "respuestaCorrecta": "a"
+        }
+    ]
+}

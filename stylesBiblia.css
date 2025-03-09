@@ -1,0 +1,213 @@
+/* Estilos generales para la Biblia adaptados a móviles y escritorio */
+.biblia-container {
+  font-family: 'Rubik', sans-serif;
+  background-color: #003d66;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.biblia-container h1 {
+  color: #2c3e50;
+  text-align: center;
+}
+
+.biblia-container .hero-content {
+  position: relative;
+  z-index: 1;
+  color: rgb(53, 52, 52);
+  max-width: 90%;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1rem;
+  text-shadow: 2px 2px 4px rgba(34, 34, 34, 0.849);
+}
+
+.biblia-container h1, .biblia-container h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  color: #b8b8b8;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.849);
+}
+
+.biblia-container .container {
+  background-color: #cecece;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(105, 105, 105, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+.biblia-container .button-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.biblia-container button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.biblia-container button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+
+.biblia-container button.active {
+  background-color: #012944;
+  color: white;
+  border: 2px solid #ffffff;
+  transform: scale(1.05);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.biblia-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
+}
+
+.biblia-container #capitulo, .biblia-container #versiculo {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
+  font-style: italic;
+}
+
+.biblia-container .highlight {
+  background-color: rgb(255, 72, 0);
+  transition: background-color 2s;
+}
+
+.biblia-container #redes-sociales {
+  text-align: center;
+  padding: 20px;
+}
+
+.biblia-container #redes-sociales a {
+  margin: 0 4px;
+  color: #d2dbe0;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.biblia-container .social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.biblia-container .social-button {
+  padding: 5px 14px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.biblia-container .facebook {
+  background-color: #3b5998;
+}
+
+.biblia-container .instagram {
+  background-color: #c13584;
+}
+
+.biblia-container .youtube {
+  background-color: #ff0000;
+}
+
+.biblia-container .social-button:hover {
+  opacity: 0.8;
+}
+
+.biblia-container footer {
+  background-color: #012e4d;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.biblia-container section {
+  background-color: #33683d;
+  margin-bottom: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.biblia-container .version-container {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.biblia-container .version-container select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #bdc3c7;
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.biblia-container .version-container select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 10px;
+  }
+  .modal-content {
+    border-radius: 0;
+  }
+  .biblia-container .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .biblia-container button {
+    width: 100%;
+    padding: 15px;
+  }
+  .biblia-container select {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .biblia-container #capitulo, .biblia-container #versiculo {
+    font-size: 14px;
+    padding: 10px;
+    word-wrap: break-word;
+  }
+}
